@@ -10,7 +10,7 @@ import { productApi } from './service/productService';
 import { storeApi } from './service/storeService';
 import { Loader } from './components';
 
-import { Home, News, Blogs, Blog, SignUp , OneStore , Product , Reset, Profil , Entercode ,  Store , Products , Cart , WishList} from './pages'
+import { Home, News, Blogs, Blog, SignUp , OneStore , Product , Profil , Entercode ,  Store , Products , Cart , WishList} from './pages'
 
 class App extends Component {
 	state = {
@@ -65,7 +65,7 @@ class App extends Component {
                                         )
                                     }
                                 }} />
-                                <Route exact path='/resetpassword' component={Reset}/>
+                                {/* <Route exact path='/resetpassword' component={Reset}/> */}
                                 <Route exact path='/entercode' component={Entercode}/>
                                 <Route exact path='/market' component={ Store }/>
                                 <Route exact path='/cart' component={Cart}/>

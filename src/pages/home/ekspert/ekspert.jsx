@@ -14,7 +14,7 @@ const Ekspert = (props) => {
         <div className={cx(st.ekspert)}>
             <div>
                 <h1 className={cx('home_blog_title')}> {props.lang.lang.blogexpert} </h1>
-                <Slider arrows={false} dots={false} autoplay autoplaySpeed={3000} slidesToShow={4}
+                <Slider className='stick' arrows={false} dots={false} autoplay autoplaySpeed={3000} slidesToShow={4}
                 slidesToScroll={2} responsive={[
                     {
                         breakpoint : 500,

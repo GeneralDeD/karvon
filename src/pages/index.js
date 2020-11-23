@@ -5,7 +5,7 @@ export { default as Blog } from './blog/blog'
 export { default as Product } from './product/productInfo'
 export { default as SignUp } from './sign-up/sign-up'
 export { default as Profil } from './profil/profil'
-export { default as Reset } from './resetpassword/reset';
+// export { default as Reset } from './resetpassword/reset';
 export { default as Entercode } from './entercode/entercode';
 export { default as CreateStore } from './createStore/createStore';
 export { default as Store } from './Stores/store';
