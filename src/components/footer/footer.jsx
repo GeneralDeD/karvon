@@ -175,10 +175,11 @@ const podpis = () => {
                             </div>
                             <div>
                                 <h1 className={cx(st.podpis_h1)}>
-                                    Подпишитесь на нашу рассылку новостей
+                                    Bizga obuna bo'ling
                                 </h1>
                                 <p className={cx(st.podpis_p)}>
-                                    Получить наши последние новости и специальные продажа
+                                    Eng so'nggi yangiliklardan xabardor bo'ling
+                                    {/*Получить наши последние новости и специальные продажа*/}
                                 </p>
                             </div>
                         </div>    
@@ -188,10 +189,10 @@ const podpis = () => {
                             <div className={cx('col-sm-8')}>
                                 <form>
                                     <div className={cx('input-group my-2')}>
-                                        <input type="email" placeholder="Your email address" className={cx(st.podpis_input, 'form-control')} required />
+                                        <input type="email" placeholder="Email manzilingiz" className={cx(st.podpis_input, 'form-control')} required />
                                         <div className={cx('input-group-append ')}>
                                             <a href="" className={cx(st.podpis_podpis)}>
-                                                Подписаться
+                                                Obuna
                                             </a>
                                         </div>    
                                     </div>

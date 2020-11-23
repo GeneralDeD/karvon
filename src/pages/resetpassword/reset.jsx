@@ -22,7 +22,7 @@ function Reset(){
     const[success,setSuccess] = useState(false)
     const [disable,setDisable] = useState();
     const [code , setCode] = useState("");
-    // const [kodXato , setKodXato] = useState("");
+    let [kodXato , setKodXato] = useState(false);
 
 
     const sendCode = e => {
@@ -39,7 +39,7 @@ function Reset(){
                 console.log(err);
                 setRequest({ error : true , success : false , process : false })
             })
-    }
+    };
     const sendCodeAndPhone = e => {
         e.preventDefault();
         // setRequest({ ...request , process : true});
@@ -50,6 +50,9 @@ function Reset(){
                     setSuccess(res.data.success)
                     cookie.set('phone',phone,{ path : '/entercode' });
                     // console.log(cookie.get('phone'))
+                    if (!res.data.success){
+                        setKodXato(true)
+                    }
                 },
                 err => {
                     console.log(err);
@@ -60,19 +63,15 @@ function Reset(){
         <div className="my-5">
             <div className="container">
                 <form className={cx("card p-3",st.reset)} style={{"display":!success?"block":"none"}} onSubmit={ sendCode}>
-                    <div className={"text-center"}>
-
-                        <img src={users} className={cx(st.reset_icon)} alt=""/>
-                    </div>
-
+                    {/*<div className={"text-center"}>*/}
+                    {/*    <img src={users} className={cx(st.reset_icon)} alt=""/>*/}
+                    {/*</div>*/}
                     {
                         !request.success &&
                         <div>
                             <div className={"p-0 m-0"}>
-
-                                <h2 className={cx(st.reset_title)}>Забыли Ваш пароль ?</h2>
-                                <p className={cx(st.reset_description)}>Введите свой номер телефона, чтобы отправить код
-                                    для сброса пароля.</p>
+                                <h2 className={cx(st.reset_title)}>Parolni unutdingizmi ?</h2>
+                                <p className={cx(st.reset_description)}>Kodni yuborish uchun telefon raqamingizni kiriting.</p>
                             </div>
                             <div className={cx("input-group", st.reset_input)}>
                                 <span className="input-group-prepend">
@@ -92,36 +91,43 @@ function Reset(){
                         </div>
                     }
                     {
-                        request.success &&
-                        <div className="alert alert-success mx-0 mx-sm-4">
-                            <i className="fa fa-fw fa-check-circle"></i>&nbsp; Код был отправлен на номер {phone} для сброса пароля.
+                        !request.success &&
+                        <div className={cx("d-flex align-items-center justify-content-between flex-wrap",st.reset_links)}>
+                            {/*<Link to='/entercode' className="mx-2"> Вы уже получили пароль? </Link>*/}
+                            <button disabled={ request.success } type="submit" className={cx(st.reset_button)}>Kodni jo'natish
+                                {
+                                    request.process && <i className="fa fa-fw fa-circle-notch fa-spin"></i>
+                                }
+                            </button>
+                        </div>
+                    }
+                </form>
 
-                            <label className={cx(st.padding)}>Введите код, который вы получили в SMS
-                                    <Countdown className={"ml-3"} date={Date.now() +2*60*1000}
-                                               daysInHours={true}/>
+                {
+                request.success &&
+                    <div>
+                        <div className={"alert alert-success mx-0 mx-sm-4 "+cx(st.reset_code)} style={{"display":success?"none":"block"}}>
+                            <i className="fa fa-fw fa-check-circle"></i>&nbsp; Parolni tiklash uchun kod {phone} ga yuborildi.SMS orqali olgan kodingizni kiriting.
+
+                            <label className={cx(st.padding)}>
+                                <Countdown className={"ml-3"} date={Date.now() +2*60*1000}
+                                           daysInHours={true}/>
                             </label>
                             <div className={cx("input-group",st.entercode_input)}>
                             <span className="input-group-prepend">
                                 <i className="fa fa-fw fa-lock"></i>
                             </span>
-                                <form className={cx("card",st.reset)} onSubmit={sendCodeAndPhone}>
-                                    <input onChange={ e => setCode(e.target.value)} placeholder="Введите код здесь" required
+                                <form style={{width: "97%"}} onSubmit={sendCodeAndPhone} className={cx("card",st.reset)}>
+                                    <input style={{"width":"100%"}} onChange={ e => setCode(e.target.value)} placeholder="Kodni bu yerga yozing" required
                                            type="text" className="form-control"/>
+                                    <button type="submit" className={"btn btn-success"}>send</button>
                                 </form>
+                                <h6 style={{"display":kodXato?"block":"none",color:"red"}}>Berilgan kod xato</h6>
                             </div>
-
-
                         </div>
-                    }
-                    <div className={cx("d-flex align-items-center justify-content-between flex-wrap",st.reset_links)}>
-                        <Link to='/entercode' className="mx-2"> Вы уже получили пароль? </Link>
-                        <button disabled={ request.success } type="submit" className={cx(st.reset_button)}> Отправить код
-                            {
-                                request.process && <i className="fa fa-fw fa-circle-notch fa-spin"></i>
-                            }
-                        </button>
                     </div>
-                </form>
+
+            }
                 <div className={"my-0 pt-0"} style={{"display":success?"block":"none"}}>
                     <Entercode/>
                 </div>

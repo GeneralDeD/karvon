@@ -3,6 +3,7 @@ import st from "../personal/personal.module.scss";
 import style from '../sign-up.module.scss';
 import cx from 'classnames'
 import { useState } from 'react';
+import { Redirect } from "react-router-dom";
 import { authApi } from '../../../service/authService';
 
 
@@ -31,8 +32,11 @@ const Personal = () => {
         setRequestProcess( prev => ({...prev , isRequest : true }))
         e.preventDefault();
         authApi.register(data).then( res => {
-            setRequestProcess({ isError : false , isRequest : false , isSuccess : true })
-        } , err => console.log(err.request.response))
+            console.log(res)
+            localStorage.setItem('token',res.data.token)
+            setRequestProcess({ isError : false , isRequest : false , isSuccess : true });
+            console.log(localStorage.getItem('usersDatum'))
+        },err => console.log(err.request.response))
     }
 
     //Main registration form
@@ -119,6 +123,10 @@ const Personal = () => {
                     </form>
                 </div>
             </div>
+            {
+                requestProcess.isSuccess &&
+                <Redirect to={localStorage.getItem('token')?'/profile':"/sign-up"}/>
+            }
         </React.Fragment>
     );
 }

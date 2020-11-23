@@ -31,29 +31,29 @@ const Entercode = () => {
             <div className="container">
                 <div className={cx("card",st.entercode)}>
                     <img src={passwordIcon} alt="password" className={cx(st.entercode_icon)}/>
-                    <h2 className={cx(st.entercode_title)}> Восстановить пароль </h2>
+                    <h2 className={cx(st.entercode_title)}>Parolni tiklash</h2>
                     <form onSubmit={ changePassword }>
-                        <label className={cx(st.padding)}>Введите код, который вы получили в SMS</label>
+                        <label className={cx(st.padding)}>Qabul qilingan SMS ni yozing</label>
                         <div className={cx("input-group",st.entercode_input)}>
                             <span className="input-group-prepend">
                                 <i className="fa fa-fw fa-lock"></i>
                             </span>
-                            <input onChange={ e => setCode(e.target.value)}  placeholder="Введите код здесь" required 
+                            <input onChange={ e => setCode(e.target.value)}  placeholder="Kodni yozing" required
                             type="text" className="form-control"/>
                         </div>
-                        <label className={cx(st.padding)}>Введите новый пароль</label>
+                        <label className={cx(st.padding)}>Yangi parol</label>
                         <div className={cx("input-group",st.entercode_input)}>
                             <span className="input-group-prepend">
                                 <i className="fa fa-fw fa-lock"></i>
                             </span>
-                            <input onChange={ e => setPassword(e.target.value)}  placeholder="Введите пароль здесь" required 
+                            <input onChange={ e => setPassword(e.target.value)}  placeholder="Yangi parol" required
                             type={ !type ? "password" : "text" } className="form-control"/>
                             <button onClick={ () => setType(!type)} type="button" className="input-group-append">
                                 <i className={`fa fa-fw fa-eye${!type ? "" : "-slash"}`}></i>
                             </button>
                         </div>
                         <div className={cx(st.padding)}>
-                            <button className={cx(st.entercode_button)}> Восстановить </button>
+                            <button className={cx(st.entercode_button)}>Tiklash</button>
                         </div>
                     </form>
                 </div>
