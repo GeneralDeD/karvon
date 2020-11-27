@@ -13,7 +13,7 @@ const Aksiya = ({lang,data}) => {
        <div className={cx(st.aksiya)}>
            <div>
                 <h1 className={cx('home_blog_title')}> {lang.lang.promotion} </h1>
-                <Slider infinite arrows={false} dots={false} autoplay autoplaySpeed={3000} slidesToShow={4}
+                {/* <Slider infinite arrows={false} dots={false} autoplay autoplaySpeed={3000} slidesToShow={4}
                 slidesToScroll={2} responsive={
                     [
                         {
@@ -53,7 +53,23 @@ const Aksiya = ({lang,data}) => {
                             )
                         })
                     }
-                </Slider>
+                </Slider> */}
+
+                    <div className={`${st.aksiya__item} d-flex`}>
+                        {
+                                cardData.map((i,index)=>{
+                                    
+                                    return(
+                                        <>
+                                            <div className={st.aksiya__blogcard}> 
+                                                <BlogCard data={i} key={i._id}/>
+                                            </div>
+                                        </>
+                                    )
+                                })
+
+                        }
+                    </div>
            </div>
        </div> 
     );

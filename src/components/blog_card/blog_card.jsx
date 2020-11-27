@@ -19,27 +19,30 @@ const BlogCard = (props) => {
                     <Link to={`/blog/experts/${data._id}`} className={cx(st.card_title_link)}>{data.title[type]}</Link>
                     <div className={cx(st.content)}>
                         <span className={cx(st.content_span)}>
-                            <span className={cx(st.avtor)}> {lang.author} :</span> Admin
+                            Admin
+                            {/* <span className={cx(st.avtor)}> {lang.author} :</span>  */}
                         </span>
-                        <span className={cx(st.content_span)}>
+                        {/* <span className={cx(st.content_span)}>
                             {data.createdAt.slice(0,10)}
-                        </span>
+                        </span> */}
                         <span className={cx(st.content_span)}>
                             <i className={cx('fas fa-eye', st.eye)}></i>
                             {data.views}
+                            <i className={cx('fas fa-comment-alt ml-3', st.eye)}></i>
+                            170
                         </span>
                     </div>
                 </div>
-                <div className={cx(st.text)}>
+                {/* <div className={cx(st.text)}>
                     <p className={cx(st.text_p)}>
                         {parse(data.description[type])}
                     </p>
-                </div>
-                <div>
+                </div> */}
+                {/* <div>
                     <Link to={`/blog/experts/${data._id}`} className={cx(st.link)}>
                         { lang.reedMore }
                     </Link>
-                </div>
+                </div> */}
             </div>
         </div>
 

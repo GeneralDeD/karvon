@@ -14,6 +14,7 @@ const Ekspert = (props) => {
         <div className={cx(st.ekspert)}>
             <div>
                 <h1 className={cx('home_blog_title')}> {props.lang.lang.blogexpert} </h1>
+{/*                 
                 <Slider className='stick' arrows={false} dots={false} autoplay autoplaySpeed={3000} slidesToShow={4}
                 slidesToScroll={2} responsive={[
                     {
@@ -53,6 +54,25 @@ const Ekspert = (props) => {
                         })
                     }
                 </Slider>
+                     */}
+                     <div className={`${st.expert__item} d-flex`}>
+                        {
+                                cardData.map((i,index)=>{
+                                    
+                                    return(
+                                        <>
+                                            <div className={st.export__blogcard}> 
+                                                <BlogCard data={i} key={i._id}/>
+                                            </div>
+                                            <div className={st.export__blogcard}> 
+                                                <BlogCard data={i} key={i._id}/>
+                                            </div>
+                                        </>
+                                    )
+                                })
+
+                        }
+                    </div>
             </div>
         </div>
     );
