@@ -53,7 +53,7 @@ class App extends Component {
                                 <Route exact path='/blogs/:id'  component={Blog} />
                                 <Route exact path='/sign-up' component={SignUp}/>
                                 <Route exact path='/products' component={ Products }/>
-                                <Route exact path='/products/:id' exact component={Product} />
+                                <Route exact path='/products/:id' component={Product} />
                                 <Route exact path='/profile' render={()=>{
                                     if(this.props.user.isLoggedIn){
                                         return(
@@ -93,5 +93,5 @@ const mdtp = dispatch => ({
     setProducts : data =>{
         dispatch({type : "setProducts" , payload : data})
     }
-})
+});
 export default connect(mstp,mdtp)(App);

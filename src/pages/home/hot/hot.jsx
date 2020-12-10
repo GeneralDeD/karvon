@@ -17,7 +17,7 @@ const Hot = (props) => {
     const { lang } = props.lang;
     const { type } = props.lang;
 
-    console.log(props.data);
+    // console.log(props.data);
 
 
     return (
@@ -50,7 +50,7 @@ const Hot = (props) => {
 }
 
 function HotCard({index, data , type, stil}){
-    console.log(index)
+    // console.log(index)
     return(
         <div className={cx(st.box, st[stil])}>
             <img className={cx(st.hot_card_img)} src={`http://umdsoft.uz${data.image}`} alt=""/>

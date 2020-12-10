@@ -1,14 +1,36 @@
 .products{
     background: #fff;
-    margin: 10px 0px;
-    padding: 30px 20px;
-    border-radius: 5px;
+    margin: 10px 0px 15px 15px;
+    padding: 30px 20px 20px 20px;
+    //padding: 0;
+    border-radius: 15px;
+}
+.blur{
+    opacity: 0.7;
+    color:red;
 }
 
 .section_title{
     font-family: Regular;
     font-size: 25px;
     position: relative;
-    padding-bottom: 10px;
-    border-bottom: 1px solid lightgray;
+    padding-bottom: 0px;
+    //border-bottom: 1px solid lightgray;
+}
+.filtr{
+    font-family: Regular;
+    font-size: 15px;
+    position: relative;
+    padding-bottom: 0px;
+    //border-bottom: 1px solid lightgray;
+}
+.goStyle{
+    border-radius: 8px;
+    font-size: 20px;
+    width: 85%;
+    border-color: #b4b2b0;
+    background: #4E7DF1;
+    color: white;
+    padding-left:15px;
+
 }

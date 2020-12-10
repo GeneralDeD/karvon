@@ -32,7 +32,7 @@ function StoreCard({data}){
                     <h6>Kompaniya haqida :</h6>
                     <p>
                         { data.description.uz }
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero similique vel animi molestiae in, ducimus totam velit nostrum iste! Saepe iure veniam vitae blanditiis distinctio, nam vero exercitationem accusantium ullam!
+                        Lorem ipsum dolor sit amet consit. Vero similique vel animi molestiae in, ducimus totam velit nostrum iste! Saepe iure veniam vitae blanditiis distinctio, nam vero exercitationem accusantium ullam!
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, quam officiis sequi nemo temporibus est ex asperiores impedit aperiam expedita cupiditate labore repellendus molestias nihil voluptatum. Dolorum accusantium impedit magnam?
                     </p>
                     <div className="d-flex justify-content-between flex-wrap">

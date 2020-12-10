@@ -29,26 +29,26 @@ function Product(props){
 
     return(
         <div className={cl(st.product,"card")} >
-            <div className={st.product_head}>
-                <img src={`http://umdsoft.uz${props.data.images[0]}`} alt={props.data.title.ru}/>
-                <div className={st.product_link}>
-                    <Link to={`/products/${props.data._id}`}> Ko'rish </Link>
+                <div className={st.product_head}>
+                    <img src={`http://umdsoft.uz${props.data.images[0]}`} alt={props.data.title.ru}/>
+                    <div className={st.product_link}>
+                        <Link to={`/products/${props.data._id}`}> Ko'rish </Link>
+                    </div>
                 </div>
-            </div>
-            <span className={st.product_new}>Yangi</span>
-            <div className={st.product_body}>
-                <div className="d-flex align-items-center justify-content-between">
-                    <button tooltip="Yoqtirganlarga" onClick={ () => {
-                        if(!inWishlist){
-                            setInWishlist(true);
-                            props.addToWishlist({ comId : props.data.company._id ,  image : props.data.images[0] , title : props.data.title , price : props.data.price , id : props.data._id  })
-                        }else{
-                            setInWishlist(false);
-                            props.removeFromWishlist(props.data._id)
-                        }
-                    }} className={cl(st.flat , inWishlist ? st.scaleUp  : st.scaleDown )}>
-                        <i className={`fa${inWishlist ? '' : 'r'} fa-fw fa-heart`}></i>  <span className="tooltiptext">Yoqtirganlarga</span>
-                    </button>
+                <span className={st.product_new}>Yangi</span>
+                <div className={st.product_body}>
+                    <div className="d-flex align-items-center justify-content-between">
+                        <button tooltip="Yoqtirganlarga" onClick={ () => {
+                            if(!inWishlist){
+                                setInWishlist(true);
+                                props.addToWishlist({ comId : props.data.company._id ,  image : props.data.images[0] , title : props.data.title , price : props.data.price , id : props.data._id  })
+                            }else{
+                                setInWishlist(false);
+                                props.removeFromWishlist(props.data._id)
+                            }
+                        }} className={cl(st.flat , inWishlist ? st.scaleUp  : st.scaleDown )}>
+                            <i className={`fa${inWishlist ? '' : 'r'} fa-fw fa-heart`}></i>  <span className="tooltiptext">Yoqtirganlarga</span>
+                        </button>
                         <ReactStars
                             classNames={st.rating}
                             count={5}
@@ -59,12 +59,12 @@ function Product(props){
                             halfIcon={<i className="fa fa-star-half-alt"></i>}
                             color="#ddd"
                         />
-                    <button tooltip="" className={st.flat}> <i className="fa fa-fw fa-share-alt"></i> <span className="tooltiptext">Ulashish</span></button>
+                        <button tooltip="" className={st.flat}> <i className="fa fa-fw fa-share-alt"></i> <span className="tooltiptext">Ulashish</span></button>
                     </div>
-                <h4 className={st.product_title}> {props.data.title.uz} </h4>
-                <h3 className={st.product_price}> {format(props.data.price)} SUM </h3>
+                    <h4 className={st.product_title}> {props.data.title.uz} </h4>
+                    <h3 className={st.product_price}> {format(props.data.price)} SUM </h3>
+                </div>
             </div>
-        </div>
     )
 }
 

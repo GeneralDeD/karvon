@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import st from "../products.module.scss";
+import {ListGroup, ListGroupItem} from "reactstrap";
 
 const kategoriyalar = [
     {
@@ -35,26 +36,29 @@ const kategoriyalar = [
 ];
 
 
-class Filter extends Component {
-    render() {
+const Filter =()=> {
+    const[check,setCheck] = useState(false);
+    const style={
+        "border-bottom":" 1px solid lightgray"
+    };
         return (
             <div>
-                <h2 className={"mt-3 mb-3 " +st.section_title}>Saralash</h2>
-                <ul className="list-unstyled list-group mb-5">
+                {/*<h2 className={" mb-3 " +st.section_title}>Filtr</h2>*/}
+                <ul className="list-group mb-5">
                     {
                         kategoriyalar.map((item,index)=>{
                             return(
-                                <li key={index} className="d-inline-block list-group-item nav-link">
-                                    <input className="mt-3" type="checkbox" id={item.id}/>
-                                    <label htmlFor={item.htmlFor}><h5 className={"ml-3 mt-0"}>{item.title}</h5></label>
+                                <li key={index} className="d-inline-block pt-0 pb-0 list-group-item">
+                                    <input className={"mt-3"} type="checkbox" id={item.id}/>
+                                    <label htmlFor={item.htmlFor}><p className={"ml-3 "+st.filtr}>{item.title}</p></label>
+                                    <hr className={"p-0 m-0"}/>
                                 </li>
                             )
                         })
                     }
                 </ul>
             </div>
-        );
-    }
+        )
 }
 
 export default Filter;

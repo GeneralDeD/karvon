@@ -2,10 +2,11 @@ import React , { useEffect , useState } from 'react';
 import {connect} from 'react-redux';
 import { productApi } from '../../service/productService';
 import st from './products.module.scss';
-import Slider from 'react-slick';
-import cl from 'classnames';
+// import cl from 'classnames';
 import { Product , InnerLoader} from '../../components';
 import Filter from "./filterByCategory/Filter";
+import Selects from "./select/Selects";
+import {Col, Container, Input, Row} from "reactstrap";
 
 function Products(props){
 
@@ -16,28 +17,41 @@ function Products(props){
         setProductList(props.products.data)
     },[props])
     return(
-        <div className="container m-0 p-0">
-            <div className={st.products}>
+        <div className="">
+            <div>
                 {
                     request && <InnerLoader/>
                 }
-                <h1 className={st.section_title}>Barcha maxsulotlar</h1>
-                <div className="row pr-0 pl-0 mr-0 ml-0">
-                    <div className="col-md-3">
-                        <Filter/>
-                    </div>
-                    <div className="col-12 col-md-8 col-xl-9">
-                        <div className="row">
+                <h1 className={st.section_title+" ml-5 mt-3"}>Barcha maxsulotlar</h1>
+                <Row className={" row pr-0 pl-0 mr-0 ml-0"}>
+                    <Col md={3} className={"mt-5"}>
+                        <div className={st.products}>
+                            <Filter/>
+                        </div>
+                    </Col>
+                    <Col md={9} className={"mt-5"}>
+                        <Row md={12}>
+                            <Col md={6}>
+
+                            </Col>
+                            <Col md={3}>
+                                <Selects/>
+                            </Col>
+                            <Col md={3}>
+                                <Selects/>
+                            </Col>
+                        </Row>
+                        <Row md={12} className={""}>
                             {
                                 productList.map((item,index) => {
                                     return(
-                                        <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3 p-0">
+                                        <Col md={3} key={index} className={" "}>
                                             <Product data={item}/>
-                                        </div>
+                                        </Col>
                                     )
                                 })
                             }
-                        </div>
+                        </Row>
                         <div className="col-12 d-flex justify-content-end">
                             {
                                 props.products.pagination.prev && <button className={"btn-pagination"} onClick={()=>setPage(props.products.pagination.prev.page)}> <i className="bx bx-left-arrow-alt"></i> Oldingi </button>
@@ -46,8 +60,8 @@ function Products(props){
                                 props.products.pagination.next && <button className={"btn-pagination"} onClick={()=>setPage(props.products.pagination.next.page)}> Keyingi <i className="bx bx-right-arrow-alt"></i></button>
                             }
                         </div>
-                    </div>
-                </div>
+                    </Col>
+                </Row>
             </div>
         </div>
     )

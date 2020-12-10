@@ -44,14 +44,13 @@ const akkount = (lang) => {
         {to:'', title:lang.credit},
         {to:'', title:lang.addreses},
         {to:'', title:lang.wishlist}
-        
-    ]
+    ];
 
     const link = links.map((i, index) => (
         <Link to={i.to} className={cx(st.col_link)} key={index}>
             {i.title}
         </Link>
-    ))
+    ));
 
     return(
         <div className={cx('col-sm-6 col-md-3')}>
@@ -65,8 +64,6 @@ const akkount = (lang) => {
     )
 }
 
-
-
 const info = (lang) => {
 
     const links = [
@@ -76,13 +73,13 @@ const info = (lang) => {
         {to:'', title:lang.service},
         {to:'', title:lang.payment},
         {to:'', title:lang.guarante},
-    ]
+    ];
 
     const link = links.map((i, index) => (
         <Link to={i.to} className={cx(st.col_link)} key={index}>
             {i.title}
         </Link>
-    ))
+    ));
 
     return(
         <div className={cx('col-sm-6 col-md-3')}>
@@ -94,7 +91,7 @@ const info = (lang) => {
             </div>
         </div>
     )
-}
+};
 
 
 
@@ -108,13 +105,13 @@ const kompaniya = (lang) => {
         {to:'', title:lang.vacancis},
         {to:'', title:lang.partners},
         {to:'', title:lang.contact},
-    ]
+    ];
 
     const link = links.map((i, index) => (
         <Link to={i.to} className={cx(st.col_link)} key={index}>
             {i.title}
         </Link>
-    ))
+    ));
 
     return(
         <div className={cx('col-sm-6 col-md-3')}>
@@ -126,7 +123,7 @@ const kompaniya = (lang) => {
             </div>
         </div>
     )
-}
+};
 
 
 
@@ -156,7 +153,7 @@ const location = (lang) => {
             </div>
         </div>
     )
-}
+};
 
 
 
@@ -192,7 +189,7 @@ const podpis = () => {
                                         <input type="email" placeholder="Email manzilingiz" className={cx(st.podpis_input, 'form-control')} required />
                                         <div className={cx('input-group-append ')}>
                                             <a href="" className={cx(st.podpis_podpis)}>
-                                                Obuna
+                                                Jo'natish
                                             </a>
                                         </div>    
                                     </div>

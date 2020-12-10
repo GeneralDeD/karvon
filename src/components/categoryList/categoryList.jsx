@@ -1,5 +1,6 @@
 import React, { useState ,useEffect} from 'react';
 import './categoryList.scss';
+import {Link} from "react-router-dom";
 
 function CategoryList({data,type,  onClose}){
     const [active,setActive] = useState(data[0]._id)
@@ -77,7 +78,7 @@ function CategoryList({data,type,  onClose}){
                 <div className="listItems">
                     <ul className="generalCategories">
                         {
-                            data.map((item,index)=>{
+                            activeList.map((item,index)=>{
                                 return(
                                     <li className={`${item._id === active ? "active" : ""}`} onMouseMove={ ()=>{
                                         if(item.children.length>0){
@@ -85,11 +86,14 @@ function CategoryList({data,type,  onClose}){
                                             setActive(item._id)
                                         }
                                     }} key={item.name['uz']}>
-                                        {item.name[type]} {item.children.length>0 && <i className="bx bx-right-arrow-alt"></i>}
+                                        <Link to={`/products/${item._id}`}>
+                                            {item.name[type]} {item.children.length>0 && <i className="bx bx-right-arrow-alt"></i>}
+                                        </Link>
                                     </li>
                                 )
                             })
                         }
+                        {console.log(data)}
                     </ul>
                     <ActiveCategory type={type} data={activeSub}/>
                 </div>

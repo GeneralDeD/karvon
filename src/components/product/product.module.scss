@@ -8,13 +8,16 @@
 }
 
 .product{
-    width: 96%;
+    width: 97%;
     height: 330px;
-    border: none !important;
-    box-shadow: none !important;
+    border-radius: 9px!important;
+    //border: none!important;
+    box-shadow: -20px 20px 20px -15px #e6e4e0;
+    //box-shadow: none !important;
     padding: 0px !important;
     margin: 10px auto;
     &:hover{
+        box-shadow: -25px 25px 20px -15px #d7d5d1;
         .product_link{
             opacity: 1 !important;
             a{
